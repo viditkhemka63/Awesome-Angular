@@ -11,6 +11,7 @@ import { LoginComponent } from './components/login/login.component';
 import { MyOrdersComponent } from './components/my-orders/my-orders.component';
 import { AuthguardGuard } from './services/authguard.guard';
 import { AdminAuthGuard } from './services/admin-auth.guard';
+import { ProductFormsComponent } from './components/admin/product-forms/product-forms.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -29,6 +30,13 @@ const routes: Routes = [
 
     { path: 'my/orders', component: MyOrdersComponent,
     canActivate: [AuthguardGuard]},
+
+    { path: 'admin/products/new', component: ProductFormsComponent,
+    canActivate: [AuthguardGuard, AdminAuthGuard]},
+
+    { path: 'admin/products/:id', component: ProductFormsComponent,
+    canActivate: [AuthguardGuard, AdminAuthGuard]},
+
 
     { path: 'admin/products', component: AdminProductsComponent,
     canActivate: [AuthguardGuard, AdminAuthGuard]},
