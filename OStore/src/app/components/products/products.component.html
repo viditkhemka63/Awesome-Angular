@@ -25,7 +25,31 @@
                 <div class="card-body">
                   <h5 class="card-title">{{ p.value.title }}</h5>
                   <p class="card-text">{{  p.value.price |currency:'USD':true  }}</p>
-                  <button type="button" class="btn btn-dark">Add to cart</button>
+                  
+                 </div>
+
+                 <div class="card-footer">
+                 
+                  <button (click)="addToCart(p)"
+                   *ngIf = "getQuantity(p.key) === 0; else updateQuantity"
+                   type="button" class="btn btn-dark btn-block">Add to cart</button>
+
+                   <ng-template #updateQuantity>
+                      <div class="row no-gutters">
+                        <div class="col-3">
+                          <button (click)="removeFromCart(p)"
+                          class="btn btn-dark btn-block">-</button>
+                        </div>
+                        <div class="col text-center">
+                          {{ getQuantity(p.key) }} in Cart
+                        </div>
+                        <div class="col-3">
+                          <button (click)="addToCart(p)"
+                          class="btn btn-dark btn-block">+</button>
+                        </div>
+                      </div>
+                   </ng-template>
+
                  </div>
                </div>
             </div>

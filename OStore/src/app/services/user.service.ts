@@ -12,10 +12,17 @@ export class UserService {
   ) { }
 
   save(user: firebase.User) {
-    this.db.object('/users/' + user.uid).update({
-      name: user.displayName,
-      email: user.email
-    });
+   this.db.list('/shopping-carts').push({
+      userId: user.uid
+   }).then(result => {
+      console.log(result);
+      this.db.object('/users/' + user.uid).update({
+        name: user.displayName,
+        email: user.email,
+        shoppingCartId: result.key
+      });
+   });
+
   }
 
   get(uid: string): AngularFireObject<AppUser> {
