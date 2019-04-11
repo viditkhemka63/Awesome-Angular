@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +16,8 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { ShopComponent } from './components/shop/shop.component';
+import { CreateProductComponent } from './components/admin/create-product/create-product.component';
+import { ShowProdcutsComponent } from './components/admin/show-prodcuts/show-prodcuts.component';
 
 @NgModule({
   declarations: [
@@ -26,12 +30,16 @@ import { ShopComponent } from './components/shop/shop.component';
     LoginComponent,
     AboutComponent,
     ContactUsComponent,
-    ShopComponent
+    ShopComponent,
+    CreateProductComponent,
+    ShowProdcutsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     AuthService,
