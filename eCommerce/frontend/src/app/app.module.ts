@@ -17,7 +17,7 @@ import { AboutComponent } from './components/about/about.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { ShopComponent } from './components/shop/shop.component';
 import { CreateProductComponent } from './components/admin/create-product/create-product.component';
-import { ShowProdcutsComponent } from './components/admin/show-prodcuts/show-prodcuts.component';
+import { ShowProductsComponent } from './components/admin/show-products/show-products.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,7 @@ import { ShowProdcutsComponent } from './components/admin/show-prodcuts/show-pro
     ContactUsComponent,
     ShopComponent,
     CreateProductComponent,
-    ShowProdcutsComponent
+    ShowProductsComponent,
   ],
   imports: [
     BrowserModule,

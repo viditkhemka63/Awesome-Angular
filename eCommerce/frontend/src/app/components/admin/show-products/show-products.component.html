@@ -1,0 +1,45 @@
+<div class="site-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="h3 mb-3 text-black">Product List</h2>
+      </div>
+      <div class="col-md-10" *ngFor="let p of products">
+
+          <div class="p-4 border mb-3">
+
+            <div class="row">
+              <div class="col-md-3">
+                    <figure class="block-4-image">
+                      <a href="shop-single.html"><img [src]="p.imageUrl" alt="Image placeholder" class="img-fluid"></a>
+                  </figure>
+              </div>
+              <div class="col-md-9">
+                  <span class="d-block text-primary h6 text-uppercase">{{  p.name }}</span>
+                  <p class="mb-0">{{ p.description }}</p>
+                  <strong class="text-primary h6">${{ p.price }}</strong>
+
+                  <div class="row">
+
+                    <div class="col-md-2">
+                        <button (click)="editClick(p._id)" class="buy-now btn btn-sm btn-primary">Edit</button>
+                    </div>
+
+                    <div class="col-md-2">
+                        <button (click)="deleteClick(p._id)" class="buy-now btn btn-sm btn-danger">Delete</button>
+                    </div>
+                  
+                  </div>
+              </div>
+            </div>
+          </div>
+
+            
+
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
