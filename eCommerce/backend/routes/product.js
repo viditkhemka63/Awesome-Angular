@@ -36,7 +36,16 @@ router.post('/create', (req, res) => {
 
 router.post('/update', (req, res) => {
     console.log('update in product execute');
+    
     res.json({message: 'product update method is under development'});
+})
+
+router.get('/getOne/:id', (req, res) => {
+    Product.findById(req.params.id, (err, data) => {
+        if(err) throw err;
+
+        res.json(data);
+    })
 })
 
 module.exports = router;

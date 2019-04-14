@@ -33,7 +33,7 @@
             <div class="form-group row">
               <div class="col-md-12">
                 <label for="c_message" class="text-black">Description </label>
-                <textarea name="cp_description" formControlName="description" id="cp_description" cols="30" rows="7" class="form-control"></textarea>
+                <textarea formControlName="description" cols="30" rows="7" class="form-control"></textarea>
               </div>
             </div>
             <div class="form-group row">
@@ -44,6 +44,19 @@
           </div>
         </form>
       </div>
+
+      <div class="item">
+          <div class="block-4 text-center">
+            <figure class="block-4-image">
+              <img [src]="myProduct.imageUrl" alt="Image placeholder" class="img-fluid">
+            </figure>
+            <div class="block-4-text p-4">
+              <h3><a href="#">{{ myProduct.name }}</a></h3>
+              <p class="mb-0">{{ myProduct.description }}</p>
+              <p class="text-primary font-weight-bold">${{ myProduct.price }}</p>
+            </div>
+          </div>
+        </div>
       
     </div>
   </div>

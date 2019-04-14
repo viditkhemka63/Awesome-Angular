@@ -22,7 +22,7 @@
                   <div class="row">
 
                     <div class="col-md-2">
-                        <button (click)="editClick(p._id)" class="buy-now btn btn-sm btn-primary">Edit</button>
+                        <button [routerLink]="['/createProduct/',p._id]" class="buy-now btn btn-sm btn-primary">Edit</button>
                     </div>
 
                     <div class="col-md-2">

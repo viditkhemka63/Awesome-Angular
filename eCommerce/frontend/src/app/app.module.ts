@@ -18,6 +18,9 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
 import { ShopComponent } from './components/shop/shop.component';
 import { CreateProductComponent } from './components/admin/create-product/create-product.component';
 import { ShowProductsComponent } from './components/admin/show-products/show-products.component';
+import { ShopSingleComponent } from './components/shop-single/shop-single.component';
+import { ShoppingCartService } from './services/shopping-cart.service';
+import { ProductService } from './services/product.service';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,7 @@ import { ShowProductsComponent } from './components/admin/show-products/show-pro
     ShopComponent,
     CreateProductComponent,
     ShowProductsComponent,
+    ShopSingleComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +47,9 @@ import { ShowProductsComponent } from './components/admin/show-products/show-pro
   ],
   providers: [
     AuthService,
-    HttpClient
+    HttpClient,
+    ShoppingCartService,
+    ProductService
   ],
   bootstrap: [AppComponent]
 })

@@ -23,4 +23,8 @@ export class ProductService {
     return this.http.post(`${this.uri}/products/update`, product);
   }
 
+  getOne(id) {
+    return this.http.get(`${this.uri}/products/getOne/${id}`);
+  }
+
 }

@@ -13,12 +13,12 @@ router.post('/login',(req,res) =>{
 
       if(user){
          if(user.validatePassword(req.body.password)){
-           res.json(user);
+           res.json(user.toAuthJSON());
          }else{
-           res.json({message: 'Wrong password'})
+           res.sendStatus(401);
          }
       } else{
-        res.json({message: 'No user found'});
+        res.sendStatus(404);
       }
     })   
 })
@@ -54,9 +54,9 @@ router.get('/getall',(req,res) => {
      if(err) throw err;
 
      if(users) {
-      res.json(users)
+      res.json(users);
      } else{
-       res.json({message:"No user found"});
+       res.sendStatus(404)
      }
    })
 })
