@@ -53,8 +53,8 @@ router.post('/findOne', (req, res) => {
     })
 }); 
 
-router.get('/getAll', (req, res) => {
-    ShoppingCart.find({}, (err, data) => {
+router.get('/getAll/:userId', (req, res) => {
+    ShoppingCart.find({userId: req.params.userId}, (err, data) => {
         if(err) throw err;
 
         res.json(data);

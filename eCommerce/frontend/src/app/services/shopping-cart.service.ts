@@ -28,7 +28,7 @@ export class ShoppingCartService {
     });
   }
 
-  getAll() {
-    return this.http.get(`${this.uri}/cart/getAll`);
+  getAll(userId) {
+    return this.http.get(`${this.uri}/cart/getAll/${userId}`);
   }
 }

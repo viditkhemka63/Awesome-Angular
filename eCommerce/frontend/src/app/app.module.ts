@@ -21,6 +21,7 @@ import { ShowProductsComponent } from './components/admin/show-products/show-pro
 import { ShopSingleComponent } from './components/shop-single/shop-single.component';
 import { ShoppingCartService } from './services/shopping-cart.service';
 import { ProductService } from './services/product.service';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { ProductService } from './services/product.service';
     CreateProductComponent,
     ShowProductsComponent,
     ShopSingleComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

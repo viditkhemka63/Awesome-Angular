@@ -10,6 +10,8 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 })
 export class NavbarComponent implements OnInit {
 
+  products;
+  count;
   constructor(
     private auth: AuthService,
     private router: Router,
@@ -17,6 +19,19 @@ export class NavbarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    if (localStorage.getItem('userId') !== null) {
+      this.cart.getAll(localStorage.getItem('userId')).subscribe(data => {
+        this.products = data;
+        console.log(this.products);
+      });
+
+      this.count = 0;
+      this.products.array.forEach(element => {
+        console.log(element);
+        console.log(element.productCount);
+        this.count += element.productCount;
+      });
+    }
   }
 
   isLoggedIn() {
@@ -29,4 +44,19 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/home']);
   }
 
-}
+  test() {
+    this.cart.getAll(localStorage.getItem('userId')).subscribe(data => {
+      this.products = data;
+      console.log(this.products);
+    });
+
+    this.count = 0;
+    this.products.forEach(element => {
+      console.log(element);
+      console.log(element.productCount);
+      this.count += element.productCount;
+    });
+    }
+  }
+
+
