@@ -31,4 +31,11 @@ export class ShoppingCartService {
   getAll(userId) {
     return this.http.get(`${this.uri}/cart/getAll/${userId}`);
   }
+
+  deleteOne(userId, productId) {
+    return this.http.post(`${this.uri}/cart/deleteOne`, {
+      userId,
+      productId
+    });
+  }
 }

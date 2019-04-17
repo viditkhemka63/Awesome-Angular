@@ -61,5 +61,14 @@ router.get('/getAll/:userId', (req, res) => {
     })
 })
 
+router.post('/deleteOne', (req, res) => {
+    ShoppingCart.findOneAndDelete({userId: req.body.userId, productId: req.body.productId}, (err, data) => {
+        if(err) throw err;
+
+        console.log(data);
+        res.json(data);
+    })
+})
+
 
 module.exports = router;

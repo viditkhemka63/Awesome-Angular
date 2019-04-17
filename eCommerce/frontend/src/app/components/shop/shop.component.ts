@@ -9,10 +9,9 @@ import { Subscription } from 'rxjs';
 })
 export class ShopComponent implements OnInit, OnDestroy {
 
-  items = [1, 1, 1, 1, 1, 11, 1, 1, 1, 11, 111];
   subscription: Subscription;
-  products = {};
-
+  products: any = {};
+  newProducts: any[] = [];
   constructor(
     private product: ProductService
   ) { }
@@ -21,9 +20,17 @@ export class ShopComponent implements OnInit, OnDestroy {
     this.subscription = this.product.getAll().subscribe(data => {
         this.products = data;
         console.log(data);
+        this.newProducts = this.products;
     });
   }
 
+  onFilter(category) {
+    this.newProducts = this.products.array.forEach(element => {
+      if (element.category === category) {
+          this.newProducts.push(element);
+      }
+    });
+  }
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }

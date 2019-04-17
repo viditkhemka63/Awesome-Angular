@@ -20,7 +20,8 @@ router.post('/create', (req, res) => {
         name: req.body.name,
         price: req.body.price,
         imageUrl: req.body.imageUrl,
-        description: req.body.description
+        description: req.body.description,
+        category: req.body.category
     });
 
     product.save((err, data) => {

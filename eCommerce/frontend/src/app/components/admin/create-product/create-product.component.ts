@@ -11,7 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class CreateProductComponent implements OnInit {
 
   id;
-  myProduct;
+  myProduct = {};
 
   constructor(
     private fb: FormBuilder,
@@ -33,14 +33,15 @@ export class CreateProductComponent implements OnInit {
       name: ['', Validators.required],
       price: ['', Validators.required],
       imageUrl: ['', Validators.required],
-      description: ['', Validators.required]
+      description: ['', Validators.required],
+      category: ['', Validators.required]
     });
   }
 
   onSubmit() {
     if (this.createProduct.valid) {
       console.log('Form submitted');
-      // console.log(this.createProduct.value);
+      console.log(this.createProduct.value);
       this.product.create(this.createProduct.value).subscribe( data => {
         console.log(data);
       });
