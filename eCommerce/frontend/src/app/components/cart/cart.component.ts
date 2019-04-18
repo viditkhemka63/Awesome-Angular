@@ -12,7 +12,7 @@ export class CartComponent implements OnInit {
 
   products;
   actualProducts: any[] = [];
-  total = 334455;
+  total = 0;
   constructor(
     private cart: ShoppingCartService,
     private product: ProductService,
@@ -35,6 +35,20 @@ export class CartComponent implements OnInit {
       console.log(this.actualProducts);
     });
 
+  }
+
+  findTotal() {
+    console.log('find total called');
+    this.total = 0;
+    let i = 0;
+    this.actualProducts.forEach(e => {
+      this.total = this.total + this.products[i].productCount * e.price;
+      i++;
+    });
+    // tslint:disable-next-line:prefer-for-of
+
+    console.log('total final value');
+    console.log(this.total);
   }
 
   deleteProduct(id) {

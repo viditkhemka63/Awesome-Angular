@@ -10,7 +10,7 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 })
 export class NavbarComponent implements OnInit {
 
-  products;
+  products = [];
   count;
   constructor(
     private auth: AuthService,
@@ -21,12 +21,12 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     if (localStorage.getItem('userId') !== null) {
       this.cart.getAll(localStorage.getItem('userId')).subscribe(data => {
-        this.products = data;
+        this.products = data as Array<any>;
         console.log(this.products);
       });
 
       this.count = 0;
-      this.products.array.forEach(element => {
+      this.products.forEach(element => {
         console.log(element);
         console.log(element.productCount);
         this.count += element.productCount;
@@ -46,7 +46,7 @@ export class NavbarComponent implements OnInit {
 
   test() {
     this.cart.getAll(localStorage.getItem('userId')).subscribe(data => {
-      this.products = data;
+      this.products = data as Array<any>;
       console.log(this.products);
     });
 

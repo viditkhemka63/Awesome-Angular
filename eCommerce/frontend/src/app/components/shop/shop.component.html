@@ -1,7 +1,7 @@
 <div class="bg-light py-3">
   <div class="container">
     <div class="row">
-      <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Shop</strong></div>
+      <div class="col-md-12 mb-0"><a routerLink="/home">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Shop</strong></div>
     </div>
   </div>
 </div>
@@ -10,11 +10,11 @@
   <div class="container">
 
     <div class="row mb-5">
-      <div class="col-md-12 order-2">
+      <div class="col-md-9 order-2">
         <div class="row mb-5" >
           
-            <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up" *ngFor="let p of products">
-                <div *ngFor="let p of products">
+            <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up" *ngFor="let p of newProducts">
+                <div >
                     <div class="block-4 text-center border">
                       <figure class="block-4-image">
                         <a [routerLink]="['/shopSingle/',p._id]"><img [src]="p.imageUrl" alt="Image placeholder" class="img-fluid"></a>
@@ -25,10 +25,10 @@
                         <p class="text-primary font-weight-bold">${{  p.price  }}</p>
                       </div>
                   </div>
+                </div>
+                
+                
             </div>
-                
-                
-              </div>
         </div>
         
         <div class="row" data-aos="fade-up">
@@ -47,6 +47,17 @@
           </div>
         </div>
       </div>
+
+      <div class="col-md-3 order-1 mb-5 mb-md-0">
+        <div class="border p-4 rounded mb-4">
+          <h3 class="mb-3 h6 text-uppercase text-black d-block">Categories</h3>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-1"><a (click)="onFilter('All')" class="d-flex"><span>All</span> </a></li>
+            <li class="mb-1"><a (click)="onFilter('Mens')" class="d-flex"><span>Men</span> <span class="text-black ml-auto">({{ mensCount }})</span></a></li>
+            <li class="mb-1"><a (click)="onFilter('Women')" class="d-flex"><span>Women</span> <span class="text-black ml-auto">({{ womenCount }})</span></a></li>
+            <li class="mb-1"><a (click)="onFilter('Childrens')" class="d-flex"><span>Children</span> <span class="text-black ml-auto">({{ childrenCount }})</span></a></li>
+          </ul>
+        </div>
 
       
     </div>
